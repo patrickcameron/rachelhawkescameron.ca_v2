@@ -23,11 +23,13 @@
         {% for gallery in home_galleries %}
             {% set gallery_data = gallery.gallery_link %}
             <div class="workitem" style="background-image: url( {{ gallery_data.thumbnail.src | resize( 1000 ) }})">
-                <!-- <a href="https://www.etsy.com/shop/rachelhawkescameron">
+                {% if gallery.has_link_badge and gallery.link_badge.url and gallery.link_badge.text %}
+                <a href="{{ gallery.link_badge.url }}" target="_blank" rel="noreferrer">
                     <div class="round">
-                        <p>Buy online</p>
+                        <p>{{ gallery.link_badge.text }}</p>
                     </div>
-                </a> -->
+                </a>
+                {% endif %}
                 <h3>{{ gallery_data.post_title }}</h3>
                 <a href="{{ gallery_data.link }}">
                     <div class="overlay"></div>
