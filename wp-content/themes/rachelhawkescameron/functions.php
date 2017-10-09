@@ -25,6 +25,8 @@ class StarterSite extends TimberSite {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'init', array( $this, 'enqueue_scripts' ) );
+		add_action( 'init', array( $this, 'enqueue_styles' ) );
 		parent::__construct();
 	}
 
@@ -42,16 +44,28 @@ class StarterSite extends TimberSite {
 		return $context;
 	}
 
-	function myfoo( $text ) {
-	// 	$text .= ' bar!';
-	// 	return $text;
-	}
-
 	function add_to_twig( $twig ) {
 		/* this is where you can add your own functions to twig */
 		// $twig->addExtension( new Twig_Extension_StringLoader() );
 		// $twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
 		return $twig;
+	}
+
+	function enqueue_scripts() {
+		// Load jQuery from CDN
+		wp_deregister_script('jquery');
+		wp_enqueue_script( 'jquery', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js', null, true );
+
+		// Load Flickity
+		wp_enqueue_script( 'flickity_js', 'http' . ($_SERVER['SERVER_PORT'] == 443 ? 's' : '') . '://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.1/flickity.pkgd.min.js', null, true );
+
+		// Load site js file
+		wp_enqueue_script( 'site_js', get_template_directory_uri() . '/js/scripts.js', array( 'jquery', 'flickity_js' ), null, true );
+		// wp_enqueue_script( 'site_js', get_template_directory_url() . '/js/')
+	}
+
+	function enqueue_styles() {
+		wp_enqueue_style( 'site_css', get_template_directory_uri() . '/style.css' );
 	}
 
 }
