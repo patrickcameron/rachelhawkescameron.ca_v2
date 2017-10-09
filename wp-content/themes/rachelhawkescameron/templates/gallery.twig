@@ -1,0 +1,42 @@
+{# ======================= COLLECT DATA ======================= #}
+{% set gallery_data = post.get_field( 'rhc_gallery' ) %}
+
+{# ========================== OUTPUT ========================== #}
+{% extends 'base.twig' %}
+
+{% block content %}
+  <div class="gallery">
+    <div class="closeButton">
+        <a href="index.html">
+          <i class="fa fa-chevron-left"></i> back
+        </a>
+    </div>
+    <div class="gallery-cell title-container">
+      <div class="title">
+        <h1>{{ post.post_title }}</h1>
+        {{ gallery_data.intro_text | wpautop }}
+      </div>
+    </div>
+    {% for image in gallery_data.images %}
+        <!-- <pre>
+        {{ image | print_r }}
+        </pre> -->
+        <div class="gallery-cell">
+          <img src="{{ image.url }}" alt="">
+        </div>
+    {% endfor %}
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.1.1/flickity.pkgd.min.js"></script>
+  <script>
+    $('.gallery').flickity({
+      wrapAround: true,
+      imagesLoaded: true,
+      setGallerySize: false,
+      pageDots: false,
+      cellSelector: '.gallery-cell'
+    });
+  </script>
+
+{% endblock content %}

@@ -1,0 +1,65 @@
+{# ======================= COLLECT DATA ======================= #}
+{% set home_galleries = post.get_field( 'rhc_gallery_previews' ) %}
+
+{# ========================== OUTPUT ========================== #}
+{% extends 'base.twig' %}
+
+{% block content %}
+
+<div class="flexContainer">
+    <header>
+        <h1>Rachel Hawkes <span class="lineBreak">Cameron //</span> <span class="shrink">Designer and illustrator</span></h1>
+        <div class="contactButton">
+            <a href="mailto:rachelcameron@gmail.com" class="smoothScroll contactButtonLink">
+                <i class="fa fa-envelope-o mailLink"></i>
+            </a>
+        </div>
+    </header>
+
+    {# GALLERIES #}
+    {% if home_galleries %}
+    <section class="work {{ home_galleries | length == 4 ? 'first-item-large' }}">
+        {% for gallery in home_galleries %}
+            {% set gallery_data = gallery.gallery_link %}
+            <div class="workitem" style="background-image: url( {{ gallery_data.thumbnail.src | resize( 1000 ) }})">
+                <!-- <a href="https://www.etsy.com/shop/rachelhawkescameron">
+                    <div class="round">
+                        <p>Buy online</p>
+                    </div>
+                </a> -->
+                <h3>{{ gallery_data.post_title }}</h3>
+                <a href="{{ gallery_data.link }}">
+                    <div class="overlay"></div>
+                </a>
+            </div>
+        {% endfor %}
+    </section>
+    {% endif %}
+
+    {# BIO #}
+    <section class="aboutMe" id="aboutMe">
+        <div class="aboutWrapper">
+            <img src="images/aboutphoto.jpg" alt="Photo of Rachel Hawkes Cameron" class="portrait">
+            <h2>Rachel Hawkes Cameron</h2>
+            <div class="icons">
+                <a href="mailto:rachelcameron@gmail.com">
+                    <i class="fa fa-envelope-o"></i>
+                </a>
+                <a href="https://instagram.com/rachelhawkescameron/">
+                    <i class="fa fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/rachelhawkescameron">
+                    <i class="fa fa-facebook"></i>
+                </a>
+            </div>
+            <h3>Rachel is a designer who studied art and architecture. She focuses on creating work that tells a story and animates its environment. Her capacity for collaboration and diversity of skills allow for an ideal result when working with clients across all mediums.</h3>
+        </div>
+    </section>
+
+    <footer>
+        <p>Copyright <span class="year"></span> Rachel Hawkes Cameron // <span class="textBlock">Website by <a href="http://patrickcameron.ca">Patrick Cameron</a></span></p>
+    </footer>
+
+</div>
+
+{% endblock %}
