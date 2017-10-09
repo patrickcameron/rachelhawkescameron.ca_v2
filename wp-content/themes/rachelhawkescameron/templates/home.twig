@@ -1,5 +1,6 @@
 {# ======================= COLLECT DATA ======================= #}
 {% set home_galleries = post.get_field( 'rhc_gallery_previews' ) %}
+{% set home_bio = post.get_field( 'rhc_bio') %}
 
 {# ========================== OUTPUT ========================== #}
 {% extends 'base.twig' %}
@@ -37,24 +38,25 @@
     {% endif %}
 
     {# BIO #}
+    {% if home_bio %}
     <section class="aboutMe" id="aboutMe">
         <div class="aboutWrapper">
-            <img src="images/aboutphoto.jpg" alt="Photo of Rachel Hawkes Cameron" class="portrait">
-            <h2>Rachel Hawkes Cameron</h2>
+            <img src="{{ home_bio.portrait | resize( 400 )}}" alt="Photo of Rachel Hawkes Cameron" class="portrait">
+            <h2>{{ home_bio.name }}</h2>
+
+            {% if home_bio.social_links %}
             <div class="icons">
-                <a href="mailto:rachelcameron@gmail.com">
-                    <i class="fa fa-envelope-o"></i>
+                {% for icon in home_bio.social_links if icon.icon and icon.link %}
+                <a href="{{ icon.link }}">
+                    {{ icon.icon }}
                 </a>
-                <a href="https://instagram.com/rachelhawkescameron/">
-                    <i class="fa fa-instagram"></i>
-                </a>
-                <a href="https://www.facebook.com/rachelhawkescameron">
-                    <i class="fa fa-facebook"></i>
-                </a>
+                {% endfor %}
             </div>
-            <h3>Rachel is a designer who studied art and architecture. She focuses on creating work that tells a story and animates its environment. Her capacity for collaboration and diversity of skills allow for an ideal result when working with clients across all mediums.</h3>
+            {% endif %}
+            <h3>{{ home_bio.bio_text }}</h3>
         </div>
     </section>
+    {% endif %}
 
     <footer>
         <p>Copyright <span class="year"></span> Rachel Hawkes Cameron // <span class="textBlock">Website by <a href="http://patrickcameron.ca">Patrick Cameron</a></span></p>
