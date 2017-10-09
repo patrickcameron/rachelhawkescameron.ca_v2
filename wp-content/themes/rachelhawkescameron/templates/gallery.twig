@@ -11,15 +11,17 @@
           <i class="fa fa-chevron-left"></i> back
         </a>
     </div>
+    {% if gallery_data.intro_text %}
     <div class="gallery-cell title-container">
       <div class="title">
         <h1>{{ post.post_title }}</h1>
         {{ gallery_data.intro_text | wpautop }}
       </div>
     </div>
+    {% endif %}
     {% for image in gallery_data.images %}
         <div class="gallery-cell">
-          <img src="{{ image.url }}" alt="">
+          <img src="{{ image.url | resize( 1500 )}}" alt="">
         </div>
     {% endfor %}
   </div>

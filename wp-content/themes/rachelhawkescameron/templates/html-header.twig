@@ -15,23 +15,12 @@
             {% endif %}
         </title>
     <meta name="description" content="{{ site.description }}">
-    <!-- <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen" /> -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="author" href="{{ site.theme.link }}/humans.txt" />
     <link rel="pingback" href="{{ site.pingback_url }}" />
     {{function('wp_head')}}
-
-    <!-- OLD SEO - these can prob be removed since Yoast is doing this -->
-	<!-- <meta name="keywords" content="Rachel Cameron, Rachel Hawkes Cameron, illustrator, designer, Toronto designer, Toronto illustrator, Hamilton designer, Hamilton illustrator"> -->
-	<!-- <meta name="description" content="Illustrator and designer based in Toronto, Canada"> -->
-	<!-- <meta property="og:title" content="Rachel Hawkes Cameron - Illustrator and Designer"> -->
-	<!-- <meta property="og:type" content="website"> -->
-	<!-- <meta property="og:url" content="http://www.rachelhawkescameron.ca"> -->
-	<!-- <meta property="og:site_name" content="Rachel Hawkes Cameron"> -->
-	<!-- <meta property="og:description" content="Illustrator and Designer based in Toronto, Canada"> -->
-	<title>Rachel Hawkes Cameron // Designer and Illustrator // Toronto</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/stylesheet.css">
+    <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen" />

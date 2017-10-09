@@ -26,7 +26,6 @@ class StarterSite extends TimberSite {
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		add_action( 'init', array( $this, 'enqueue_scripts' ) );
-		add_action( 'init', array( $this, 'enqueue_styles' ) );
 		parent::__construct();
 	}
 
@@ -61,11 +60,6 @@ class StarterSite extends TimberSite {
 
 		// Load site js file
 		wp_enqueue_script( 'site_js', get_template_directory_uri() . '/js/scripts.js', array( 'jquery', 'flickity_js' ), null, true );
-		// wp_enqueue_script( 'site_js', get_template_directory_url() . '/js/')
-	}
-
-	function enqueue_styles() {
-		wp_enqueue_style( 'site_css', get_template_directory_uri() . '/style.css' );
 	}
 
 }

@@ -2,7 +2,6 @@
 Theme Name: Rachel Hawkes Cameron
 Author: Patrick Cameron patcameron@gmail.com
 Author URI: https://patrickcameron.ca/
-Description: Based on the twentyseventeen theme.
 */
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
@@ -283,6 +282,10 @@ section.work.first-item-large .workitem:first-child {
           transition: 0.3s all;
 }
 
+.workitem:first-of-type {
+    -webkit-filter: none;
+}
+
 .workitem:hover {
     -webkit-filter: none;
 }
@@ -304,45 +307,6 @@ section.work.first-item-large .workitem:first-child {
   background: rgba(255, 255, 255, 0.8);
   padding: 20px;
   height: 73px;
-}
-
-.jewelry {
-  background-image: url(../images/jewelry1.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-.jewelry:hover {
-  -webkit-filter: none;
-}
-
-.illustration {
-  background-image: url(../images/illustration2.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-.illustration:hover {
-  -webkit-filter: none;
-}
-
-.merchandise {
-  background-image: url(../images/merchandise3.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-.merchandise:hover {
-  -webkit-filter: none;
-}
-
-.zodiac {
-  background-image: url(../images/zodiac2.jpg);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  -webkit-filter: none;
-  width: 60%;
 }
 
 .round {
@@ -380,17 +344,6 @@ section.work.first-item-large .workitem:first-child {
 .round a {
   color: #fff;
   text-decoration: none;
-}
-
-.thesis {
-  display: none;
-  background: url(../images/thesis1.jpg);
-  background-size: cover;
-  background-position: center;
-}
-
-.thesis:hover {
-  -webkit-filter: none;
 }
 
 footer {
@@ -578,44 +531,43 @@ footer p {
 
 
 /*GALLERY CAROUSEL*/
-/*custom styling*/
 
-  a.etsy-link {
-    color: #000 !important;
-  }
+.closeButton {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  z-index:1;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+}
+.closeButton a {
+  color: white;
+  background: rgba(0,0,0,0.5);
+  padding: 15px;
+  border-radius: 15px;
+  text-decoration: none;
+}
+.closeButton i {
+  padding-right: 10px;
+  font-size: 13px;
+}
 
-/* gallery height */
-    .gallery {
-      height: 100vh;
-    }
+.gallery {
+  height: 100vh;
+}
 
-    /* cell inherit height from gallery */
-    .gallery-cell {
-      height: 100%;
-    }
+/* cell inherit height from gallery */
+.gallery-cell {
+  height: 100%;
+}
 
-    .gallery-cell img {
-      height: 100vh;
-    }
-    .closeButton {
-      position: absolute;
-      top: 30px;
-      left: 20px;
-      z-index:1;
-      font-family: 'Lato', sans-serif;
-      font-size: 14px;
-    }
-    .closeButton a {
-      color: white;
-      background: rgba(0,0,0,0.5);
-      padding: 15px;
-      border-radius: 15px;
-      text-decoration: none;
-    }
-    .closeButton i {
-      padding-right: 10px;
-      font-size: 13px;
-    }
+.gallery-cell img {
+  height: 100vh;
+}
+
+.gallery-cell img {
+  margin: 0 15px;
+}
 
 
 /*! Flickity v1.1.1
@@ -728,38 +680,6 @@ http://flickity.metafizzy.co
   font-size: 26px;
 }
 
-/* ---- page dots ---- */
-
-.flickity-page-dots {
-  position: absolute;
-  width: 100%;
-  bottom: -25px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  text-align: center;
-  line-height: 1;
-}
-
-.flickity-rtl .flickity-page-dots { direction: rtl; }
-
-.flickity-page-dots .dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  margin: 0 8px;
-  background: #333;
-  border-radius: 50%;
-  filter: alpha(opacity=25); /* IE8 */
-  opacity: 0.25;
-  cursor: pointer;
-}
-
-.flickity-page-dots .dot.is-selected {
-  filter: alpha(opacity=100); /* IE8 */
-  opacity: 1;
-}
-
 
 /*CUSTOM CSS*/
 
@@ -809,11 +729,4 @@ http://flickity.metafizzy.co
   .title p {
     font-size: 12px;
   }
-}
-
-
-/*custom styling*/
-
-.gallery-cell img {
-  margin: 0 15px;
 }

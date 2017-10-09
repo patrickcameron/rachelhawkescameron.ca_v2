@@ -44,13 +44,96 @@
                     "multiple": 0,
                     "return_format": "object",
                     "ui": 1
+                },
+                {
+                    "key": "field_59dbc6b7fe4b0",
+                    "label": "Include link badge?",
+                    "name": "has_link_badge",
+                    "type": "true_false",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 0,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_59dbc6c4fe4b1",
+                    "label": "Link Badge Options",
+                    "name": "link_badge",
+                    "type": "group",
+                    "value": null,
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_59dbc6b7fe4b0",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_59dbc6d4fe4b2",
+                            "label": "Text",
+                            "name": "text",
+                            "type": "text",
+                            "value": null,
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_59dbc6dafe4b3",
+                            "label": "URL",
+                            "name": "url",
+                            "type": "url",
+                            "value": null,
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ]
                 }
             ]
         },
         {
             "key": "field_59dba893f2d9e",
             "label": "Bio",
-            "name": "rch_bio",
+            "name": "rhc_bio",
             "type": "group",
             "value": null,
             "instructions": "",
@@ -911,5 +994,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1507570430
+    "modified": 1507575768
 }
