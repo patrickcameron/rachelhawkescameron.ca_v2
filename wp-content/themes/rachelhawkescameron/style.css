@@ -266,11 +266,6 @@ section.work {
           flex: 1 1 auto;
 }
 
-/* Make first item extra-wide if only 4 items instead of usual 5 */
-section.work.first-item-large .workitem:first-child {
-    width: 60%;
-}
-
 .workitem {
   background-position: center;
   background-size: cover;
@@ -280,6 +275,11 @@ section.work.first-item-large .workitem:first-child {
   -webkit-filter: grayscale(50%);
   -webkit-transition: 0.3s all;
           transition: 0.3s all;
+}
+
+/* Make first item extra-wide if only 4 items instead of usual 5 */
+section.work.first-item-large .workitem:first-child {
+    width: 60%;
 }
 
 .workitem:first-of-type {
@@ -434,6 +434,9 @@ footer p {
   .workitem {
     width: 100%;
     min-height: 200px;
+  }
+  section.work.first-item-large .workitem:first-child {
+      width: 100%;
   }
   .workitem h3 {
     height: auto;
