@@ -21,7 +21,7 @@
     {% endif %}
     {% for image in gallery_data.images %}
         <div class="gallery-cell">
-          <img src="{{ image.url | resize( 1500 )}}" alt="">
+          <img src="{{ image.url | tojpg | resize( 1500 )}}" alt="">
         </div>
     {% endfor %}
   </div>

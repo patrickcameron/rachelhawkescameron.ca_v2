@@ -22,7 +22,7 @@
     <section class="work {{ home_galleries | length == 4 ? 'first-item-large' }}">
         {% for gallery in home_galleries %}
             {% set gallery_data = gallery.gallery_link %}
-            <div class="workitem" style="background-image: url( {{ gallery_data.thumbnail.src | resize( 1000 ) }})">
+            <div class="workitem" style="background-image: url( {{ gallery_data.thumbnail.src | tojpg | resize( 1000 ) }})">
                 {% if gallery.has_link_badge and gallery.link_badge.url and gallery.link_badge.text %}
                 <a href="{{ gallery.link_badge.url }}" target="_blank" rel="noreferrer">
                     <div class="round">
