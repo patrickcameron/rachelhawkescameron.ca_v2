@@ -6,5 +6,5 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
-$templates = array( 'gallery.twig' );
+$templates = array( 'single-gallery.twig' );
 Timber::render( $templates, $context );
